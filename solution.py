@@ -2,10 +2,14 @@ import pandas as pd
 import numpy as np
 
 
-chat_id = 123456 # Ваш chat ID, не меняйте название переменной
+chat_id = 975846018 # Ваш chat ID, не меняйте название переменной
 
-def solution(...) -> bool: # Одна или две выборке на входе, заполняется исходя из условия
-    # Измените код этой функции
-    # Это будет вашим решением
-    # Не меняйте название функции и её аргументы
-    return ... # Ваш ответ, True или False
+def solution(x: np.array) -> bool:
+    n = len(x)
+    sample_mean = np.mean(x)
+    sample_std = np.std(x, ddof=1)
+    
+    t_stat = (sample_mean - 300) / (sample_std / np.sqrt(n))
+    p_value = t.sf(t_stat, n-1)
+    
+    return p_value < 0.08
